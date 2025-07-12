@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DGS Score Tracker - Net ve Sıralama Raporu</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>📊 Net ve Sıralama Raporu</h1>
+      <p>Net ortalamalarınız ve sıralama dalgalanmalarınız</p>
+    </header>
+
+    <div class="main-content">
+      <div class="left-panel">
+        <div class="charts-section">
+          <div class="chart-container">
+            <h3>📈 Net Grafikleri</h3>
+            <canvas id="netChart"></canvas>
+          </div>
+          <div class="chart-container">
+            <h3>🎯 Sıralama Grafiği</h3>
+            <canvas id="rankingChart"></canvas>
+          </div>
+        </div>
+        <div class="records-section charts-table-align">
+          <h3>
+            📋 Kayıtlarım
+            <a href="#" onclick="addTestData()" class="records-btn green">Test Verisi Ekle</a>
+            <a href="#" onclick="clearAllData()" class="records-btn red">Tümünü Sil</a>
+          </h3>
+          <div class="table-container">
+            <table id="recordsTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Matematik</th>
+                  <th>Türkçe</th>
+                  <th>Sıralama</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="form-section">
+          <h3>➕ Yeni Deneme Ekle</h3>
+          <div class="input-group">
+            <label>Matematik:</label>
+            <input type="number" step="0.01" id="matInput" placeholder="0.00" />
+          </div>
+          <div class="input-group">
+            <label>Türkçe:</label>
+            <input type="number" step="0.01" id="turInput" placeholder="0.00" />
+          </div>
+          <div class="input-group">
+            <label>Sıralama:</label>
+            <input type="number" id="sirInput" placeholder="1000" />
+          </div>
+          <button onclick="addData()" class="add-btn">Ekle</button>
+        </div>
+        <div class="stats-section">
+          <h3>📊 İstatistikler</h3>
+          <div class="stats-grid" id="statsDisplay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; <span id="currentYear"></span> Emirhan Uysal </p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
