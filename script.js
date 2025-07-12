@@ -1,4 +1,3 @@
-// LocalStorage anahtarları
 const STORAGE_KEYS = {
   matNet: 'matNet',
   turNet: 'turNet',
@@ -22,7 +21,6 @@ function saveData() {
   localStorage.setItem(STORAGE_KEYS.siralama, JSON.stringify(siralama));
 }
 
-// Başlangıçta verileri yükle
 let { matNet, turNet, siralama } = loadData();
 
 let netChart, rankingChart;
@@ -196,7 +194,7 @@ function addData() {
     turNet.push(tur);
     siralama.push(sir);
 
-    saveData(); // <-- Ekleme sonrası kaydet
+    saveData(); 
     updateAll();
     clearInputs();
     
@@ -207,10 +205,9 @@ function addData() {
 }
 
 function addTestData() {
-  // Kullanıcının verdiği test verileri
-  const testMat = [40, 43.25, 33, 35.75, 44, 39.75, 33.25, 32.5, 36.0, 34.25, 37.75, 36.0, 35.5, 31.75];
-  const testTur = [27.5, 19.5, 26, 20.75, 18, 24.75, 23.5, 17.25, 20.0, 21.75, 19.0, 16.5, 18.75, 28.25];
-  const testSir = [388, 241, 2328, 1599, 199, 476, 2481, 3743, 1569, 2144, 1099, 1876, 1882, 3009];
+  const testMat = [40, 43.25, 33, 35.75, 44, 39.75, 33.25, 32.5, 36.0, 34.25, 37.75, 36.0, 35.5, 31.75, 43.0];
+  const testTur = [27.5, 19.5, 26, 20.75, 18, 24.75, 23.5, 17.25, 20.0, 21.75, 19.0, 16.5, 18.75, 28.25, 27.0];
+  const testSir = [388, 241, 2328, 1599, 199, 476, 2481, 3743, 1569, 2144, 1099, 1876, 1882, 3009, 148];
 
   matNet = matNet.concat(testMat);
   turNet = turNet.concat(testTur);
@@ -236,7 +233,7 @@ function deleteData(index) {
     matNet.splice(index, 1);
     turNet.splice(index, 1);
     siralama.splice(index, 1);
-    saveData(); // <-- Silme sonrası kaydet
+    saveData(); 
     updateAll();
     showSuccessMessage("Deneme başarıyla silindi!");
   }
